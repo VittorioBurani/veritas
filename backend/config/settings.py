@@ -63,7 +63,6 @@ INSTALLED_APPS = [
     'corsheaders',
     'drf_spectacular',
     'django_filters',
-    'knox',
     'rest_framework_simplejwt',
     # Custom apps:
     'custom',
@@ -231,8 +230,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Rest Framework Settings:
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'knox.auth.TokenAuthentication', # DJANGO REST KNOX
-        'rest_framework_simplejwt.authentication.JWTAuthentication', # SIMPLE JWT
         'rest_framework_simplejwt.authentication.JWTStatelessUserAuthentication', # SIMPLE JWT Stateless
     ),
     'DEFAULT_PERMISSION_CLASSES': (
@@ -267,22 +264,11 @@ SPECTACULAR_SETTINGS = {
 }
 
 
-# DJANGO REST KNOX Settings:
-REST_KNOX = {
-    'SECURE_HASH_ALGORITHM': 'cryptography.hazmat.primitives.hashes.SHA512',
-    'AUTH_TOKEN_CHARACTER_LENGTH': 64,
-    'TOKEN_TTL': timedelta(hours=10),
-    'USER_SERIALIZER': 'knox.serializers.UserSerializer',
-    'TOKEN_LIMIT_PER_USER': 5,
-    'AUTO_REFRESH': False,
-}
-
-
 # SIMPLE JWT Settings:
 SIMPLE_JWT = {
-    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=5),
-    "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
-    "ROTATE_REFRESH_TOKENS": False,
+    "ACCESS_TOKEN_LIFETIME": timedelta(days=1),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=7),
+    "ROTATE_REFRESH_TOKENS": True,
     "UPDATE_LAST_LOGIN": False,
 
     "ALGORITHM": "RS256",
