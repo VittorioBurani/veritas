@@ -28,6 +28,7 @@ from drf_spectacular.views import SpectacularAPIView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/auth/', include('accounts.urls')),
+    path('', include('wine_cellar.urls')),
 ]
 
 if settings.DEBUG:

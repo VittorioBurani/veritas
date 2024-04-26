@@ -67,6 +67,7 @@ INSTALLED_APPS = [
     # Custom apps:
     'custom',
     'accounts',
+    'wine_cellar',
 ]
 
 MIDDLEWARE = [
