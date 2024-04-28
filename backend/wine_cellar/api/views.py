@@ -1,6 +1,7 @@
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework_simplejwt.authentication import JWTStatelessUserAuthentication
+from django_filters.rest_framework import DjangoFilterBackend
 from wine_cellar.models import GrapeVariety, Producer, Country, Region, Wine
 from .serializers import (
     GrapeVarietySerializer,
@@ -11,6 +12,13 @@ from .serializers import (
     RegionDisplaySerializer,
     WineSerializer,
     WineDisplaySerializer,
+)
+from .filters import (
+    GrapeVarietyFilter,
+    ProducerFilter,
+    CountryFilter,
+    RegionFilter,
+    WineFilter,
 )
 
 
@@ -24,6 +32,8 @@ class GrapeVarietyListAPIView(generics.ListAPIView):
     serializer_class = GrapeVarietySerializer
     authentication_classes = (JWTStatelessUserAuthentication,)
     permission_classes = (IsAuthenticated,)
+    filter_backends = (DjangoFilterBackend,)
+    filterset_class = GrapeVarietyFilter
 
 
 class GrapeVarietyRetrieveAPIView(generics.RetrieveAPIView):
@@ -67,6 +77,8 @@ class ProducerListAPIView(generics.ListAPIView):
     serializer_class = ProducerSerializer
     authentication_classes = (JWTStatelessUserAuthentication,)
     permission_classes = (IsAuthenticated,)
+    filter_backends = (DjangoFilterBackend,)
+    filterset_class = ProducerFilter
 
 
 class ProducerRetrieveAPIView(generics.RetrieveAPIView):
@@ -110,6 +122,8 @@ class CountryListAPIView(generics.ListAPIView):
     serializer_class = CountryDisplaySerializer
     authentication_classes = (JWTStatelessUserAuthentication,)
     permission_classes = (IsAuthenticated,)
+    filter_backends = (DjangoFilterBackend,)
+    filterset_class = CountryFilter
 
 
 class CountryRetrieveAPIView(generics.RetrieveAPIView):
@@ -153,6 +167,8 @@ class RegionListAPIView(generics.ListAPIView):
     serializer_class = RegionDisplaySerializer
     authentication_classes = (JWTStatelessUserAuthentication,)
     permission_classes = (IsAuthenticated,)
+    filter_backends = (DjangoFilterBackend,)
+    filterset_class = RegionFilter
 
 
 class RegionRetrieveAPIView(generics.RetrieveAPIView):
@@ -196,6 +212,8 @@ class WineListAPIView(generics.ListAPIView):
     serializer_class = WineDisplaySerializer
     authentication_classes = (JWTStatelessUserAuthentication,)
     permission_classes = (IsAuthenticated,)
+    filter_backends = (DjangoFilterBackend,)
+    filterset_class = WineFilter
 
 
 class WineRetrieveAPIView(generics.RetrieveAPIView):
