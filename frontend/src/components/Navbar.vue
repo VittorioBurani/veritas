@@ -3,7 +3,7 @@ import { RouterLink } from 'vue-router'
 </script>
 
 <template>
-<nav class="navbar navbar-expand-lg bg-light">
+<nav class="navbar navbar-expand-lg">
   <div class="container justify-content-between mx-0 px-0">
     <div class="content-wrapper ms-4">
       <cite>
@@ -37,3 +37,25 @@ import { RouterLink } from 'vue-router'
   </div>
 </nav>
 </template>
+
+<style scoped>
+.navbar {
+  background: #e9e3ba;
+}
+
+a:link {
+    color: #5b011b;
+}
+
+a:visited {
+    color: #5b011b;
+}
+
+a:hover {
+    color: #8d1638;
+}
+
+a:active {
+    color: #8d1638;
+}
+</style>

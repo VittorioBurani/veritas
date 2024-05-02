@@ -18,26 +18,26 @@
 }
 
 /* Add color to texts */
-.mint {
-    color: #4caf6d;
+.red-wine {
+    color: #8d1638;
 }
 
 /* unvisited link */
 a:link {
-    color: #4caf6d;
+    color: #8d1638;
 }
 
 /* visited link */
 a:visited {
-    color: #4caf6d;
+    color: #5b011b;
 }
 
 /* mouse over link */
 a:hover {
-    color: #388e3c;
+    color: #ad1717;
 }
 
 /* selected link */
 a:active {
-    color: #1b5e20;
+    color: #ad1717;
 }
