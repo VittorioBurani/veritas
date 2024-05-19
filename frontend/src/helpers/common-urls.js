@@ -5,6 +5,7 @@ const BACKEND_API_AUTH_URL = `${BACKEND_API_URL}/auth`;
 
 // User endpoints:
 const userDataUrl = `${BACKEND_API_AUTH_URL}/get-user/`;
+const passwordResetUrl = `${BACKEND_API_AUTH_URL}/password-reset/`;
 
 // JWT endpoints:
 const accessTokenUrl = `${BACKEND_API_AUTH_URL}/token/`;
@@ -38,6 +39,7 @@ const modelCRUDUrlsMethods = (modelName) => ({
 export {
     // User calls:
     userDataUrl,
+    passwordResetUrl,
     // JWT Calls:
     accessTokenUrl,
     refreshTokenUrl,

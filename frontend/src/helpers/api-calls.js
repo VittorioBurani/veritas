@@ -3,6 +3,7 @@ import { DB_MODEL_NAMES } from './db-models.js';
 import {
     // User API Calls:
     userDataUrl,
+    passwordResetUrl,
     // JWT API Calls:
     accessTokenUrl,
     refreshTokenUrl,
@@ -22,6 +23,15 @@ const authHeaderHandler = (accessToken, method) => {
 
 // User API Calls:
 const userDataApiCall = (accessToken) => axios.get(userDataUrl, {headers: authHeaderHandler(accessToken, 'get')});
+
+const passwordResetApiCall = (accessToken, new_pwd, conf_pwd) => axios.post(
+    passwordResetUrl,
+    {
+        new_password: new_pwd,
+        confirm_password: conf_pwd,
+    },
+    {headers: authHeaderHandler(accessToken, 'post')},
+);
 
 
 // JWT API Calls:
@@ -95,6 +105,7 @@ const modelsCRUDApiCalls = Object.fromEntries(DB_MODEL_NAMES.map(modelName => [m
 export {
     // User API Calls:
     userDataApiCall,
+    passwordResetApiCall,
     // JWT API Calls:
     accessTokenApiCall,
     refreshTokenApiCall,
