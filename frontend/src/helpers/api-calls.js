@@ -14,9 +14,9 @@ import {
 
 
 // Header utility:
-const authHeaderHandler = (accessToken, method) => {
+const authHeaderHandler = (accessToken, method, multipart=false) => {
     let ret = {'Authorization': `Bearer ${accessToken}`};
-    if (method !== 'get') ret['Content-Type'] = 'application/json';
+    if (method !== 'get') ret['Content-Type'] = multipart ? 'multipart/form-data' : 'application/json';
     return ret
 }
 
