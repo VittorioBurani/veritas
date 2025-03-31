@@ -12,7 +12,7 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
         token['email'] = user.email
         token['is_staff'] = user.is_staff
         token['is_superuser'] = user.is_superuser
-        token['password_reset_required'] = user.password_reset_required
+        token['password_must_be_reset'] = user.password_must_be_reset
         return token
 
 
@@ -20,7 +20,7 @@ class UserDisplaySerializer(serializers.ModelSerializer):
     '''Generic User Serializer'''
     class Meta:
         model = CustomUser
-        fields = ["id", "username", "email", "is_staff", "is_superuser"]
+        fields = ["id", "username", "email", "is_staff", "is_superuser", "password_must_be_reset"]
 
 
 class PasswordResetSerializer(serializers.Serializer):
