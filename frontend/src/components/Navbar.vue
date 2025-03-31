@@ -1,9 +1,10 @@
 <script setup>
 import { RouterLink } from 'vue-router'
+import UserManager from './UserManager.vue';
 </script>
 
 <template>
-<nav class="navbar navbar-expand-lg bg-light">
+<nav class="navbar navbar-expand-lg">
   <div class="container justify-content-between mx-0 px-0">
     <div class="content-wrapper ms-4">
       <cite>
@@ -12,7 +13,7 @@ import { RouterLink } from 'vue-router'
         </a>
       </cite>
       <RouterLink class="navbar-brand" :to="{ name: 'home' }">
-          Mintr
+          Veritas
       </RouterLink>
     </div>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,12 +29,32 @@ import { RouterLink } from 'vue-router'
       </ul>
       <ul class="navbar-nav me-4">
         <li class="nav-item">
-            <RouterLink class="nav-link" :to="{ name: 'about' }">
-                About
-            </RouterLink>
+          <UserManager />
         </li>
       </ul>
     </div>
   </div>
 </nav>
 </template>
+
+<style scoped>
+.navbar {
+  background: #e9e3ba;
+}
+
+a:link {
+    color: #5b011b;
+}
+
+a:visited {
+    color: #5b011b;
+}
+
+a:hover {
+    color: #8d1638;
+}
+
+a:active {
+    color: #8d1638;
+}
+</style>
